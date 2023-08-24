@@ -1,12 +1,13 @@
-package scenarios;
+package hw2.scenarios;
 
-import flow.GooglePageFlow;
+import hw2.flow.flow.GooglePageFlow;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import setup.BaseTest;
-import utils.PropertiesReader;
+import hw2.setup.BaseTest;
+
+import static hw2.utils.PropertiesReader.readProperty;
 
 public class webMobileTests extends BaseTest {
 
@@ -29,11 +30,12 @@ public class webMobileTests extends BaseTest {
 
     @Test(groups = {"web"}, description = "Make sure that on page should be some relevant results")
     public void searchTest() throws InterruptedException, NoSuchFieldException, IllegalAccessException, InstantiationException {
+        String searchQuery = readProperty("search.term");
         GooglePageFlow googlePageFlow = new GooglePageFlow();
         googlePageFlow.openPage();
-        googlePageFlow.searchForTerm(PropertiesReader.readProperty("search.term"));
-        assert getDriver().getTitle().contains(PropertiesReader.readProperty("search.term")) : "This page doesn't contain search results for EPAM";
-        assert googlePageFlow.isLinkPresent(PropertiesReader.readProperty("search.link")) :
+        googlePageFlow.searchForTerm(searchQuery);
+        assert getDriver().getTitle().contains(searchQuery) : "This page doesn't contain search results for EPAM";
+        assert googlePageFlow.isSearchResultRelevant(searchQuery) :
                 "There is no EPAM link on the page";
     }
 }

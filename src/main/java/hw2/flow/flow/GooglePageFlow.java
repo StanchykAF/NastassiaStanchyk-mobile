@@ -1,11 +1,10 @@
-package flow;
+package hw2.flow.flow;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.WebPageObject;
-import setup.BaseTest;
+import hw2.pageObjects.WebPageObject;
+import hw2.setup.BaseTest;
 
 public class GooglePageFlow extends BaseTest {
 
@@ -21,8 +20,8 @@ public class GooglePageFlow extends BaseTest {
         pageLoaded();
     }
 
-    public boolean isLinkPresent(String link) {
-        return getDriver().findElements(By.xpath(String.format(WebPageObject.LINK, link))).size() > 0;
+    public boolean isSearchResultRelevant(String query) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+        return getPo().getWelement("searchResults").getText().contains(query);
     }
 
     private void pageLoaded() {

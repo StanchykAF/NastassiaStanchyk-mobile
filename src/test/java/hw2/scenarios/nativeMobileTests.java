@@ -1,17 +1,11 @@
-package scenarios;
+package hw2.scenarios;
 
-import dto.User;
-import flow.NativeAppFlow;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import hw2.dto.User;
+import hw2.flow.flow.NativeAppFlow;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.NativePageObject;
-import setup.BaseTest;
-import utils.DtoGenerator;
+import hw2.setup.BaseTest;
+import hw2.utils.DtoGenerator;
 
 public class nativeMobileTests extends BaseTest {
 
@@ -31,7 +25,6 @@ public class nativeMobileTests extends BaseTest {
         getPo().getWelement("okBtn").click();
         nativeStep.registration(user);
         nativeStep.login(user);
-        String pageTitle = nativeStep.getPageTitle();
-        Assert.assertEquals(pageTitle, "BudgetActivity");
+        Assert.assertEquals(nativeStep.getPageTitle(), "BudgetActivity");
     }
 }

@@ -1,11 +1,11 @@
-package flow;
+package hw2.flow.flow;
 
-import dto.User;
+import hw2.dto.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.NativePageObject;
-import setup.BaseTest;
+import hw2.pageObjects.NativePageObject;
+import hw2.setup.BaseTest;
 
 public class NativeAppFlow extends BaseTest {
 

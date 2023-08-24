@@ -1,4 +1,4 @@
-package setup;
+package hw2.setup;
 
 import org.openqa.selenium.WebElement;
 

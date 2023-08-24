@@ -1,8 +1,8 @@
-package utils;
+package hw2.utils;
 
-import dto.User;
+import hw2.dto.User;
 
-import static utils.PropertiesReader.readProperty;
+import static hw2.utils.PropertiesReader.readProperty;
 
 public class DtoGenerator {
 

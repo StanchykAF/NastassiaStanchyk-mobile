@@ -1,4 +1,4 @@
-package dto;
+package hw2.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
