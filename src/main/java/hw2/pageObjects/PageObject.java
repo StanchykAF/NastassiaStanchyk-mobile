@@ -1,8 +1,8 @@
-package pageObjects;
+package hw2.pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
-import setup.IPageObject;
+import hw2.setup.IPageObject;
 
 import java.lang.reflect.Field;
 
