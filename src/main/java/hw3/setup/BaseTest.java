@@ -59,7 +59,7 @@ public class BaseTest implements IDriver {
         caps.setCapability("appium:platformVersion", "13.0");
         caps.setCapability("appium:automationName", automationName);
         MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        sauceOptions.setCapability("appiumVersion", "1.22.3");
         sauceOptions.setCapability("username", System.getProperty("username"));
         sauceOptions.setCapability("accessKey", System.getProperty("accessKey"));
         sauceOptions.setCapability("build", "appium-build-2LITO");
