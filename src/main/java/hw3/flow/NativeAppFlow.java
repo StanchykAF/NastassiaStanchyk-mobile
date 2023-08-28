@@ -10,15 +10,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class NativeAppFlow extends BaseTest {
 
     public void registration(User user) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
-        new WebDriverWait(getDriver(), 20).until(ExpectedConditions.
-                visibilityOf(getPo().getWelement("registerBtn"))).click();
+        getPo().getWelement("registerBtn").click();
         getPo().getWelement("regEmail").sendKeys(user.getEmail());
         getPo().getWelement("regUsername").sendKeys(user.getUsername());
         getPo().getWelement("regPassword").sendKeys(user.getPassword());
         getPo().getWelement("regConfirmPassword").sendKeys(user.getPassword());
-
-        getDriver().hideKeyboard();
-
+        if (System.getProperty("platformName").equals("Android")) {
+            getDriver().hideKeyboard();
+        }
         getPo().getWelement("confirmCheckbox").click();
         getPo().getWelement("registerNewAccountBtn").click();
     }
