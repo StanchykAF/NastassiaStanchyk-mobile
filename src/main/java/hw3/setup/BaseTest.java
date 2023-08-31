@@ -1,9 +1,9 @@
 package hw3.setup;
 
 import hw3.pageObjects.PageObject;
+import hw3.utils.TestContext;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.MutableCapabilities;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
@@ -36,11 +36,11 @@ public class BaseTest implements IDriver {
         setAppiumDriver(deviceOrientation, platformVersion, appiumVersion, automationName, platformName, deviceName,
                 browserName, app);
         setPageObject(appType, appiumDriver);
-
+        TestContext.getInstance().set("platformName", platformName);
     }
 
     @AfterSuite(alwaysRun = true)
-    public void tearDown(ITestResult result) {
+    public void tearDown() {
         System.out.println("After");
         appiumDriver.closeApp();
         appiumDriver.quit();

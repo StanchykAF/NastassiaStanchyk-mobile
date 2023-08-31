@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Web mobile testing Suite">
     <parameter name="appType" value="web"/>
-    <parameter name="deviceName" value="Samsung.*"/>
+    <parameter name="deviceName" value="Android GoogleAPI Emulator"/>
     <parameter name="deviceOrientation" value="portrait"/>
     <parameter name="platformName" value="Android"/>
-    <parameter name="platformVersion" value="10"/>
+    <parameter name="platformVersion" value="current_major"/>
     <parameter name="browserName" value="Chrome"/>
     <parameter name="automationName" value="UiAutomator2"/>
     <parameter name="appiumVersion" value="1.22.3"/>

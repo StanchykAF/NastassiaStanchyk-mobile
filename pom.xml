@@ -104,5 +104,25 @@
                 <suite.file>./src/test/resources/remoteWebTNG.xml</suite.file>
             </properties>
         </profile>
+
+        <profile>
+            <id>remoteiOSNative</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/remoteiOSNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>remoteiOSWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/remoteiOSWebTNG.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
 </project>

@@ -9,7 +9,7 @@ import static hw2.utils.PropertiesReader.readProperty;
 public class WebMobileTests extends BaseTest {
 
     @Test(groups = {"web"}, description = "Make sure that on page should be some relevant results")
-    public void searchTest() throws InterruptedException, NoSuchFieldException, IllegalAccessException, InstantiationException {
+    public void searchTest() throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         String searchQuery = readProperty("search.term");
         GooglePageFlow googlePageFlow = new GooglePageFlow();
         googlePageFlow.openPage();
