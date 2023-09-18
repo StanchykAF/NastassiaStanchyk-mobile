@@ -47,7 +47,8 @@
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/</ts.appium>
+<!--                        <ts.appium>http://localhost:4723/</ts.appium>-->
+                        <ts.appium>https://ondemand.eu-central-1.saucelabs.com:443/wd/hub</ts.appium>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

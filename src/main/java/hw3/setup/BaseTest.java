@@ -59,8 +59,8 @@ public class BaseTest implements IDriver {
         caps.setCapability("appium:automationName", automationName);
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", appiumVersion);
-        sauceOptions.setCapability("username", System.getProperty("username"));
-        sauceOptions.setCapability("accessKey", System.getProperty("accessKey"));
+        sauceOptions.setCapability("username", System.getProperty("USERNAME"));
+        sauceOptions.setCapability("accessKey", System.getProperty("ACCESS_KEY"));
         sauceOptions.setCapability("build", "appium-build-2LITO");
         sauceOptions.setCapability("name", "<your test name>");
         caps.setCapability("sauce:options", sauceOptions);
@@ -69,7 +69,7 @@ public class BaseTest implements IDriver {
         caps.setCapability("chromedriverDisableBuildCheck","true");
 
         try {
-            URL url = new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
+            URL url = new URL(System.getProperty("ts.appium"));
             appiumDriver = new AppiumDriver(url, caps);
         } catch (MalformedURLException e) {
             e.printStackTrace();

@@ -9,7 +9,8 @@ public class WebPageObject {
 
     public static final String HOMEPAGE_URL = "https://google.com/";
 
-    @FindBy(xpath = "//input[@name='q']")
+    //    @FindBy(xpath = "//input[@name='q']")
+    @FindBy(xpath = "//textarea[@name='q']")
     WebElement searchField;
 
     @FindBy(xpath = "//div[@id='rso']")

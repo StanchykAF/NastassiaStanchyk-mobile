@@ -4,7 +4,7 @@
     <parameter name="deviceName" value="Android GoogleAPI Emulator"/>
     <parameter name="deviceOrientation" value="portrait"/>
     <parameter name="platformName" value="Android"/>
-    <parameter name="platformVersion" value="current_major"/>
+    <parameter name="platformVersion" value="13.0"/>
     <parameter name="app" value="EPAMTestApp.apk"/>
     <parameter name="automationName" value="UiAutomator2"/>
     <parameter name="appiumVersion" value="2.0.0"/>

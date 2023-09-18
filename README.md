@@ -1,5 +1,6 @@
 # For running tests locally use testNG.xml file
 
+0. In pom.xml change <ts.appium> property to http://localhost:4723/
 1. **_nativeTNG.xml_** for running tests for native app (put your .apk to src/main/resources folder)
 2. **_webTNG.xml_** for running tests for web app
 
@@ -9,6 +10,7 @@ If you use appium version 1, change <ts.appium> property in pom.xml to http://lo
 
 ## How to run tests remotly on saucelabs.com
 
+0. In pom.xml change <ts.appium> property to https://ondemand.eu-central-1.saucelabs.com:443/wd/hub
 1. Create account on saucelabs.com
-2. Set your username and access key in _Run configuration_ -> _VM option_ -> -Dusername=your_username -DaccessKey=your_access_key
+2. Set your username and access key in _Run configuration_ -> _VM option_ -> -DUSERNAME=your_username -DACCESS_KEY=your_access_key
 3. For running tests remotly use _remote*TNG.xml_ files
