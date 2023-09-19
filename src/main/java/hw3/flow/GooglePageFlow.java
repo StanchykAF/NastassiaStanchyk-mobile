@@ -25,7 +25,9 @@ public class GooglePageFlow extends BaseTest {
     }
 
     public boolean isSearchResultRelevant(String query) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
-        return getPo().getWelement("searchResults").getText().contains(query);
+        pageLoaded();
+        return new WebPageObject(getDriver()).getSearchResults().stream()
+                .allMatch(res -> res.getText().contains(query));
     }
 
     private void pageLoaded() {
