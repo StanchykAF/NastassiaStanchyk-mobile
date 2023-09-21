@@ -5,6 +5,7 @@ import hw3.setup.BaseTest;
 import hw3.utils.TestContext;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GooglePageFlow extends BaseTest {
@@ -21,13 +22,25 @@ public class GooglePageFlow extends BaseTest {
         pageLoaded();
         getPo().getWelement("searchField").clear();
         getPo().getWelement("searchField").sendKeys(term);
-        getPo().getWelement("searchField").sendKeys(Keys.RETURN);
+        if (TestContext.getInstance().get("platformName", String.class).equals("Android")) {
+            getPo().getWelement("searchField").sendKeys(Keys.RETURN);
+        } else {
+            new WebPageObject(getDriver()).getSearchSuggestions().stream()
+                    .filter(suggestion -> suggestion.getText().equalsIgnoreCase(term))
+                    .findFirst()
+                    .ifPresent(WebElement::click);
+            pageLoaded();
+            getPo().getWelement("closeGoogleWidgetSuggestionBtn").click();
+        }
     }
 
-    public boolean isSearchResultRelevant(String query) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+    public boolean isSearchResultRelevant(String query) {
         pageLoaded();
         return new WebPageObject(getDriver()).getSearchResults().stream()
-                .allMatch(res -> res.getText().contains(query));
+                .allMatch(res -> {
+                    System.out.println("\nResult:\n" + res.getText());
+                    return res.getText().contains(query);
+                });
     }
 
     private void pageLoaded() {

@@ -22,6 +22,11 @@ public class WebPageObject {
     @FindBy(xpath = "//div[@id='stUuGf']/div/div[2]/div/div/div[4]/g-raised-button[2]/div")
     WebElement googleAppSuggestionDenyBtn;
 
+    @FindBy(xpath = "//li[@role='presentation']/div[@role='option']")
+    List<WebElement> searchSuggestions;
+
+    @FindBy(xpath = "//div[@id='stUuGf']/div/div[2]/div/div/div[3]/span")
+    WebElement closeGoogleWidgetSuggestionBtn;
 
     public WebPageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements(appiumDriver, this);

@@ -14,7 +14,9 @@ public class WebMobileTests extends BaseTest {
         GooglePageFlow googlePageFlow = new GooglePageFlow();
         googlePageFlow.openPage();
         googlePageFlow.searchForTerm(searchQuery);
-        assert getDriver().getTitle().contains(searchQuery) : "This page doesn't contain search results for EPAM";
+        System.out.println("Page title: " + getDriver().getTitle());
+        System.out.println("Search query: " + searchQuery);
+        assert getDriver().getTitle().toLowerCase().contains(searchQuery.toLowerCase()) : "This page doesn't contain search results for EPAM";
         assert googlePageFlow.isSearchResultRelevant(searchQuery) :
                 "There is no EPAM link on the page";
     }
