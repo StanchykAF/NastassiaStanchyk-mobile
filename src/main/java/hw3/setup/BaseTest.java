@@ -19,22 +19,22 @@ public class BaseTest implements IDriver {
     static IPageObject po;
 
     @Override
-    public AppiumDriver getDriver() { return appiumDriver; }
+    public AppiumDriver getDriver() {
+        return appiumDriver;
+    }
 
     public IPageObject getPo() {
         return po;
     }
 
-    @Parameters({"deviceOrientation", "platformVersion", "appiumVersion",
-            "automationName", "platformName","appType","deviceName","browserName","app"})
+    @Parameters({"platformVersion", "appiumVersion", "automationName", "platformName", "appType", "deviceName",
+            "browserName", "app"})
     @BeforeSuite(alwaysRun = true)
-    public void setUp(String deviceOrientation, String platformVersion, String appiumVersion, String automationName,
-                      String platformName, String appType, String deviceName,
-                      @Optional("") String browserName,
-                      @Optional("") String app) throws Exception {
-        System.out.println("Before: app type - "+appType);
-        setAppiumDriver(deviceOrientation, platformVersion, appiumVersion, automationName, platformName, deviceName,
-                browserName, app);
+    public void setUp(String platformVersion, String appiumVersion, String automationName, String platformName,
+                      String appType, String deviceName,
+                      @Optional("") String browserName, @Optional("") String app) throws Exception {
+        System.out.println("Before: app type - " + appType);
+        setAppiumDriver(platformVersion, appiumVersion, automationName, platformName, deviceName, browserName, app);
         setPageObject(appType, appiumDriver);
         TestContext.getInstance().set("platformName", platformName);
     }
@@ -46,15 +46,14 @@ public class BaseTest implements IDriver {
         appiumDriver.quit();
     }
 
-    private void setAppiumDriver(String deviceOrientation, String platformVersion, String appiumVersion, String automationName,
+    private void setAppiumDriver(String platformVersion, String appiumVersion, String automationName,
                                  String platformName, String deviceName, String browserName, String app) {
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", platformName);
-        if(app.endsWith(".apk") || app.endsWith(".ipa")) {
+        if (app.endsWith(".apk") || app.endsWith(".ipa")) {
             caps.setCapability("appium:app", "storage:filename=" + app);  // The filename of the mobile app
         }
         caps.setCapability("appium:deviceName", deviceName);
-        caps.setCapability("appium:deviceOrientation", deviceOrientation);
         caps.setCapability("appium:platformVersion", platformVersion);
         caps.setCapability("appium:automationName", automationName);
         MutableCapabilities sauceOptions = new MutableCapabilities();
@@ -66,7 +65,7 @@ public class BaseTest implements IDriver {
         caps.setCapability("sauce:options", sauceOptions);
 
         caps.setCapability("browserName", browserName);
-        caps.setCapability("chromedriverDisableBuildCheck","true");
+        caps.setCapability("chromedriverDisableBuildCheck", "true");
 
         try {
             URL url = new URL(System.getProperty("ts.appium"));

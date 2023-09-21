@@ -2,7 +2,6 @@
 <suite name="Web mobile testing Suite">
     <parameter name="appType" value="web"/>
     <parameter name="deviceName" value="iPhone Simulator"/>
-    <parameter name="deviceOrientation" value="portrait"/>
     <parameter name="platformName" value="iOS"/>
     <parameter name="platformVersion" value="16.2"/>
     <parameter name="browserName" value="Safari"/>

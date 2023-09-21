@@ -2,7 +2,6 @@
 <suite name="Native mobile testing Suite">
     <parameter name="appType" value="native"/>
     <parameter name="deviceName" value="iPhone.*"/>
-    <parameter name="deviceOrientation" value="portrait"/>
     <parameter name="platformName" value="iOS"/>
     <parameter name="platformVersion" value="16"/>
     <parameter name="app" value="EPAMTestApp.ipa"/>

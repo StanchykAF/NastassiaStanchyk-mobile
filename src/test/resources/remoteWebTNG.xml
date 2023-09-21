@@ -2,7 +2,6 @@
 <suite name="Web mobile testing Suite">
     <parameter name="appType" value="web"/>
     <parameter name="deviceName" value="Android GoogleAPI Emulator"/>
-    <parameter name="deviceOrientation" value="portrait"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="platformVersion" value="13.0"/>
     <parameter name="browserName" value="Chrome"/>
