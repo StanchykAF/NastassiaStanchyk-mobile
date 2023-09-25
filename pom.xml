@@ -47,7 +47,8 @@
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/</ts.appium>
+<!--                        <ts.appium>http://localhost:4723/</ts.appium>-->
+                        <ts.appium>https://ondemand.eu-central-1.saucelabs.com:443/wd/hub</ts.appium>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -82,6 +83,46 @@
             </activation>
             <properties>
                 <suite.file>./src/test/resources/webTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>remoteAndroidNative</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/remoteAndroidNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>remoteWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/remoteWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>remoteiOSNative</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/remoteiOSNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>remoteiOSWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/remoteiOSWebTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>
